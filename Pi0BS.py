@@ -1,14 +1,14 @@
 # Imports
 import os
 import asyncio
-import simpleobsws
+from simpleobsws import obsws
 from dotenv import load_dotenv
 from gpiozero import Button, LED
 
 # Set up
 load_dotenv()
 loop = asyncio.get_event_loop()
-ws = simpleobsws.obsws(host=os.getenv('HOST'), port=os.getenv('PORT'), password=os.getenv('PASSWORD'), loop=loop)
+ws = obsws(host=os.getenv('HOST'), port=os.getenv('PORT'), password=os.getenv('PASSWORD'), loop=loop)
 
 # Pins use the physical numbering of the board
 led = LED('BOARD3')
@@ -39,11 +39,84 @@ button24 = Button('BOARD38')
 button25 = Button('BOARD40')
 
 # Functions - edit these!
+# Button 1 - Function
 def button1_fn():
     async def fn():
         result = await ws.call('GetVersion')
         print(result)
     loop.run_until_complete(fn())
+
+# Button 2 - Function
+
+
+# Button 3 - Function
+
+
+# Button 4 - Function
+
+
+# Button 5 - Function
+
+
+# Button 6 - Function
+
+
+# Button 7 - Function
+
+
+# Button 8 - Function
+
+
+# Button 9 - Function
+
+
+# Button 10 - Function
+
+
+# Button 11 - Function
+
+
+# Button 12 - Function
+
+
+# Button 13 - Function
+
+
+# Button 14 - Function
+
+
+# Button 15 - Function
+
+
+# Button 16 - Function
+
+
+# Button 17 - Function
+
+
+# Button 18 - Function
+
+
+# Button 19 - Function
+
+
+# Button 20 - Function
+
+
+# Button 21 - Function
+
+
+# Button 22 - Function
+
+
+# Button 23 - Function
+
+
+# Button 24 - Function
+
+
+# Button 25 - Function
+
 
 # Connect websocket
 loop.run_until_complete(ws.connect())
@@ -53,6 +126,30 @@ led.on()
 
 # Watch for button presses
 button1.when_pressed = button1_fn
+button2.when_pressed = button2_fn
+button3.when_pressed = button3_fn
+button4.when_pressed = button4_fn
+button5.when_pressed = button5_fn
+button6.when_pressed = button6_fn
+button7.when_pressed = button7_fn
+button8.when_pressed = button8_fn
+button9.when_pressed = button9_fn
+button10.when_pressed = button10_fn
+button11.when_pressed = button11_fn
+button12.when_pressed = button12_fn
+button13.when_pressed = button13_fn
+button14.when_pressed = button14_fn
+button15.when_pressed = button15_fn
+button16.when_pressed = button16_fn
+button17.when_pressed = button17_fn
+button18.when_pressed = button18_fn
+button19.when_pressed = button19_fn
+button20.when_pressed = button20_fn
+button21.when_pressed = button21_fn
+button22.when_pressed = button22_fn
+button23.when_pressed = button23_fn
+button24.when_pressed = button24_fn
+button25.when_pressed = button25_fn
 
 # Keep program running
 pause()
