@@ -2,13 +2,12 @@
 import os
 import asyncio
 from simpleobsws import obsws
-from dotenv import load_dotenv
 from gpiozero import Button, LED
 
-# Set up
+# Set up - edit the host, port, and password
 load_dotenv()
 loop = asyncio.get_event_loop()
-ws = obsws(host=os.getenv('HOST'), port=os.getenv('PORT'), password=os.getenv('PASSWORD'), loop=loop)
+ws = obsws(host='192.1.168.1', port=4444, password='password', loop=loop)
 
 # Pins use the physical numbering of the board
 led = LED('BOARD3')

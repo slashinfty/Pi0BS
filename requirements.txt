@@ -1,0 +1,4 @@
+colorzero==2.0
+gpiozero==1.6.2
+simpleobsws==0.0.7
+websockets==10.0
