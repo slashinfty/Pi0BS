@@ -1,3 +1,5 @@
+#! /usr/bin/python3
+
 # Imports
 import os
 import asyncio
@@ -41,7 +43,7 @@ button25 = Button('BOARD40')
 # Button 1 - Function
 def button1_fn():
     async def fn():
-        result = await ws.call('GetVersion')
+        result = await ws.call('ToggleStudioMode')
         print(result)
     loop.run_until_complete(fn())
 
