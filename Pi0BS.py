@@ -42,24 +42,44 @@ button25 = Button('BOARD40')
 # Button 1 - Function
 def button1_fn():
     async def fn():
-        result = await ws.call('ToggleStudioMode')
+        result = await ws.call('StartStreaming')
         print(result)
     loop.run_until_complete(fn())
 
 # Button 2 - Function
-
+def button2_fn():
+    async def fn():
+        result = await ws.call('StopStreaming')
+        print(result)
+    loop.run_until_complete(fn())
 
 # Button 3 - Function
-
+def button3_fn():
+    async def fn():
+        result = await ws.call('StartRecording')
+        print(result)
+    loop.run_until_complete(fn())
 
 # Button 4 - Function
-
+def button4_fn():
+    async def fn():
+        result = await ws.call('StopRecording')
+        print(result)
+    loop.run_until_complete(fn())
 
 # Button 5 - Function
-
+def button5_fn():
+    async def fn():
+        result = await ws.call('EnableStudioMode')
+        print(result)
+    loop.run_until_complete(fn())
 
 # Button 6 - Function
-
+def button6_fn():
+    async def fn():
+        result = await ws.call('SetPreviewScene', {'scene-name': 'Coding'})
+        print(result)
+    loop.run_until_complete(fn())
 
 # Button 7 - Function
 
