@@ -4,7 +4,7 @@
 import os
 import asyncio
 from simpleobsws import obsws
-from gpiozero import Button, LED
+from gpiozero import Button
 from signal import pause
 
 # Set up - edit the host, port, and password
@@ -12,7 +12,6 @@ loop = asyncio.get_event_loop()
 ws = obsws(host='192.168.1.1', port=4444, password='password', loop=loop)
 
 # Pins use the physical numbering of the board
-led = LED('BOARD3')
 button1 = Button('BOARD5')
 button2 = Button('BOARD7')
 button3 = Button('BOARD8')
@@ -122,10 +121,7 @@ def button1_fn():
 # Connect websocket
 loop.run_until_complete(ws.connect())
 
-# Turn on LED
-led.on()
-
-# Watch for button presses
+# Watch for button presses - comment out any buttons that aren't being used
 button1.when_pressed = button1_fn
 button2.when_pressed = button2_fn
 button3.when_pressed = button3_fn

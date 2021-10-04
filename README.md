@@ -16,14 +16,20 @@ Download Raspberry Pi OS Lite from [raspberrypi.org](https://www.raspberrypi.org
 
 You'll also need to set up SSH (see below) and [WiFi](https://www.raspberrypi.org/documentation/computers/configuration.html#setting-up-a-headless-raspberry-pi) before booting.
 
-> For headless setup, SSH can be enabled by placing a file named ssh, without any extension, onto the boot partition of the SD Card. When the Raspberry Pi boots, it looks for the ssh file. If it is found, SSH is enabled and the file is deleted. The content of the file does not matter; it could contain text, or nothing at all. 
+```
+passwd
+sudo apt update && sudo apt upgrade -y
+sudo apt install git pip3
+git clone https://github.com/slashinfty/Pi0BS.git
+cd Pi0BS
+pip3 install -r requirements.txt
+sudo usermod -a -G gpio pi
+sudo raspi-config (autologin on boot)
+nano ~/.bashrc (add python3 /home/pi/Pi0BS/Pi0BS.py &)
+```
 
 ### Customize the Script
 In `Pi0BS.py` you will need to add in the address, port, and password of your OBS websocket. You can also edit any functions using any [requests](https://github.com/Palakis/obs-websocket/blob/4.x-current/docs/generated/protocol.md) from the websocket API.
-
-### Script at Boot
-
-
 
 ## Physical Build
 Wiring
